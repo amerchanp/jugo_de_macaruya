@@ -1,14 +1,22 @@
 # RETO 6
-## Imprimir un listado con los números del 1 al 100 cada uno con su respectivo cuadrado
+## 1. Imprimir un listado con los números del 1 al 100 cada uno con su respectivo cuadrado
 
 ```
 for i in range(1, 101):
     print(f"{i} -> {i**2}")
 
 ```
+```mermaid
+flowchart TD
+    A[Inicio] --> B[i = 1]
+    B --> C{¿i <= 100?}
+    C -- Sí --> D[Imprimir i y i^2]
+    D --> E[i = i + 1]
+    E --> C
+    C -- No --> F[Fin]
+```
 
-
-## Imprimir un listado con los números impares desde 1 hasta 999 y seguidamente otro listado con los números pares desde 2 hasta 1000
+## 2. Imprimir un listado con los números impares desde 1 hasta 999 y seguidamente otro listado con los números pares desde 2 hasta 1000
 ```
 print("Impares del 1 al 999:")
 for i in range(1, 1000, 2):
@@ -19,7 +27,22 @@ for i in range(2, 1001, 2):
     print(i, end=", ")
 
 ```
-## Imprimir los números pares en forma descendente hasta 2 que son menores o iguales a un número natural n ≥ 2 dado
+```mermaid
+flowchart TD
+    A[Inicio] --> B[i = 1]
+    B --> C{¿i <= 999?}
+    C -- Sí --> D[Imprimir i (impar)]
+    D --> E[i = i + 2]
+    E --> C
+    C -- No --> F[j = 2]
+    F --> G{¿j <= 1000?}
+    G -- Sí --> H[Imprimir j (par)]
+    H --> I[j = j + 2]
+    I --> G
+    G -- No --> J[Fin]
+
+```
+## 3. Imprimir los números pares en forma descendente hasta 2 que son menores o iguales a un número natural n ≥ 2 dado
 ```
 n = int(input("Ingrese un número natural n (n ≥ 2): "))
 print(f"Pares desde {n} hasta 2:")
@@ -28,7 +51,20 @@ for i in range(n, 1, -1):
         print(i, end=", ")
 
 ```
-## Imprimir el factorial de un número natural n dado
+```mermaid
+flowchart TD
+    A[Inicio] --> B[Leer n]
+    B --> C[i = n]
+    C --> D{¿i >= 2?}
+    D -- Sí --> E{¿i % 2 == 0?}
+    E -- Sí --> F[Imprimir i]
+    E -- No --> G[i = i - 1]
+    F --> G
+    G --> D
+    D -- No --> H[Fin]
+
+```
+## 4. Imprimir el factorial de un número natural n dado
 
 ```
 n = int(input("Ingrese un número natural: "))
@@ -38,7 +74,7 @@ for i in range(1, n + 1):
 print(f"El factorial de {n} es: {factorial}")
 
 ```
-## Implementar un programa que ingrese un número de 2 a 50 y muestre sus divisores.
+## 5. Implementar un programa que ingrese un número de 2 a 50 y muestre sus divisores.
 ```
 n = int(input("Ingrese un número entre 2 y 50: "))
 if 2 <= n <= 50:
@@ -50,7 +86,7 @@ else:
     print("Número fuera de rango.")
 
 ```
-## Implementar el algoritmo que muestre los números primos del 1 al 100
+## 6. Implementar el algoritmo que muestre los números primos del 1 al 100
 ```
 
 def es_primo(num):
