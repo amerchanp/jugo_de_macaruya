@@ -27,21 +27,24 @@ for i in range(2, 1001, 2):
     print(i, end=", ")
 
 ```
+
 ```mermaid
 flowchart TD
-    A[Inicio] --> B[i = 1]
-    B --> C{¿i <= 999?}
-    C -- Sí --> D[Imprimir i (impar)]
+    A[Inicio]
+    A --> B[i = 1]
+    B --> C{i <= 999}
+    C --> D[Imprimir i]
     D --> E[i = i + 2]
     E --> C
-    C -- No --> F[j = 2]
-    F --> G{¿j <= 1000?}
-    G -- Sí --> H[Imprimir j (par)]
+    C --> F[j = 2]
+    F --> G{j <= 1000}
+    G --> H[Imprimir j]
     H --> I[j = j + 2]
     I --> G
-    G -- No --> J[Fin]
+    G --> J[Fin]
 
 ```
+
 ## 3. Imprimir los números pares en forma descendente hasta 2 que son menores o iguales a un número natural n ≥ 2 dado
 ```
 n = int(input("Ingrese un número natural n (n ≥ 2): "))
